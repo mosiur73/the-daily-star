@@ -5,7 +5,7 @@ import { FcRating } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 
 const NewsCart = ({news}) => {
-    console.log(news);
+   
     const {_id,title,details,image_url,author,rating,total_view}=news;
     
     return (
@@ -18,8 +18,9 @@ const NewsCart = ({news}) => {
       alt="Shoes" />
   </figure>
   <div className="card-body">
-    <p>{details}</p>
-    <p className='text-red-400'>Read more</p>
+    <p>{details.slice(0,150)}...{""}</p>
+    <Link to={`/news/${news._id}`} className='text-red-400'>Read more</Link>
+
     <div className="divider"></div>
    <div className='flex justify-between items-center'>
    <div className='flex items-center gap-3'>
